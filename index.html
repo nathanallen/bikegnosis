@@ -9,7 +9,22 @@
   </head>
 
   <body>
-    <form></form>
+    <form>
+      <div class='pull_left'></div>
+      <div class='pull_right'></div>
+    </form>
+    <div class='center' id="problems"></div>
   </body>
+
+  <!-- templates -->
+  <script type="text/tmpl" id="problem-item">
+    <div class='problem-item'>
+      <div>
+        <div class="problem-image-container"><img src="{image_url}"></div>
+        <div><h2>{description}</h2></div>
+      </div>
+      
+    </div>
+  </script>
 
 </html>

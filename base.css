@@ -1,1 +1,36 @@
-base.css
+.pull_left {
+  float: left;
+  width: 20%;
+  background: red;
+}
+
+.pull_right {
+  float: right;
+  width: 20%;
+}
+
+.center {
+  float: left;
+  width: 60%;
+  background: blue;
+}
+
+.problem-item div {
+  float: left;
+}
+
+.problem-item:after {
+  display: block;
+  content: "";
+  height: 0px;
+  clear: both;
+}
+
+.problem-image-container {
+  border: 1px dotted black;
+  margin-right: 10px;
+}
+
+.problem-image-container img {
+  width: 200px;
+}
