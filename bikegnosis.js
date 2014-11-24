@@ -37,7 +37,7 @@ function build_checklist_section(section_title, section_values) {
     return new_elements
 }
 
-function build_problem_summary(problems_tmpl, filtered_problems) {
+function build_problem_summaries(problems_tmpl, filtered_problems) {
     var n = filtered_problems.length,
         new_elements = []
 
@@ -52,8 +52,11 @@ function render_page() {
         $problems = $('div#problems'),
         problems_tmpl = $('#problem-item').html()
 
-    $form.find('.pull_left').append(build_checklist_section("Sound Type", sounds))
-                       .append(build_checklist_section("Rhythm Type", rhythms))
-    // $form.find('.pull_right')
-    $problems.append(build_problem_summary(problems_tmpl, problems))
+    $form.find('.pull_left')
+         .append(build_checklist_section("Sound Type", sounds))
+         .append(build_checklist_section("Worse When...", worse_whens))
+         .append(build_checklist_section("Rhythm Type", rhythms))
+         .append(build_checklist_section("Every revolution of the...", revolution_types))
+    $problems.append(build_problem_summaries(problems_tmpl, problems))
+    
 }

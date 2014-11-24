@@ -1,18 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100vmin;
+  margin: 0;
+  overflow: hidden;
+}
+
+form {
+  height: 100%;
+}
+
+.diagnostic {
+  height: 100%;
+  overflow: scroll;
+  padding: 0 0.83em 0.83em;
+}
+
 .pull_left {
   float: left;
-  width: 20%;
+  width: 25%;
   background: red;
 }
 
-.pull_right {
+/*.pull_right {
   float: right;
   width: 20%;
-}
+}*/
 
 .center {
   float: left;
-  width: 60%;
+  width: 75%;
   background: blue;
+}
+
+#problems {
+  height: 100vmin;
+  overflow: scroll;
 }
 
 .problem-item div {
