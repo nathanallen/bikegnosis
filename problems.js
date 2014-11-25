@@ -6,6 +6,11 @@ var problem_criteria = {
   worse_when: ["climbing", "standing_and_pedaling", "cornering", "road_is_rough", "coasting", "braking", "pedaling", "accelerating"].sort()
 }
 
+var no_results = [{
+  description: "Aww, crap! I dunno!",
+  image_url: "https://farm5.staticflickr.com/4075/4758394595_5129178324_z.jpg",
+  image_source: "https://www.flickr.com/photos/exfordy/4758394595/in/photostream/"
+}]
 
 var problems = [
   { description: "broken spoke",

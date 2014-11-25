@@ -53,6 +53,7 @@ function render_solutions() {
   $problems.html('')
   if (!filtered_problems.length){
     $problems.append("<h1>No Results</h1>")
+            .append(build_problem_summaries(problems_tmpl, no_results))
   }
   $problems.append(build_problem_summaries(problems_tmpl, filtered_problems))
 }
