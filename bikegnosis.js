@@ -34,6 +34,7 @@ function build_checklist_section(section_title, name) {
         var value = section_values[i]
         new_elements.push("<label><input type='radio' name='" + name +"' value='" + value + "'>" + value.replace(/_/g, " ") + "<br/></label>")
     }
+    new_elements.push($("<button>Reset</button>").click(function(){$('input[name=' + name + ']:checked').attr('checked', false); return false;}))
     return new_elements
 }
 
@@ -67,32 +68,25 @@ function render_page() {
          .append(build_checklist_section("Rhythm Type", "rhythm"))
          .append(build_checklist_section("Every revolution of the...", "revolution_type"))
 
-    $('#diagnostic input').click(function(e){
-      filter_type = $(this).attr('name')
-      filter_val = $(this).attr('value')
-      if ($(this).is(':checked')) {
-        render_solutions(filter_problems(filter_type, filter_val))
-      } else {
-        render_solutions(filter_problems("","",true))
-      }
+    $('#diagnostic input').change(function(e){
+        render_solutions(filter_problems())
+    })
+
+    $('#diagnostic button').click(function(e){
+        render_solutions(filter_problems())
     })
 
     render_solutions()
 }
 
-var filter = {},
-    filtered_problems = clone(problems)
+var filtered_problems = clone(problems)
 
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
-function filter_problems(filter_key, filter_val, remove_filter) {
-    // if (remove_filter) {
-      filtered_problems = clone(problems);
-      // filter = {}
-      // return filtered_problems
-    // }
+function filter_problems() {
+    filtered_problems = clone(problems);
     var selections = $('input:checked')
     var i = selections.length
     while (i--) {
