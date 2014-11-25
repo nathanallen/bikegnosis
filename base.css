@@ -12,10 +12,6 @@ form {
   min-width: 800px;
 }
 
-label {
-  /*margin: 0 0.83em;*/
-}
-
 #diagnostic {
   height: 100%;
   overflow: scroll;

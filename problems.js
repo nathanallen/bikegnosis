@@ -1,8 +1,12 @@
-var rhythms = ["regular", "irregular", "intermittent"],
-    sounds = ["clicking", "creaking", "pinging", "popping", "ticking", "rattling", "clunking"] //, "crunching", "tapping", "buzzing", "rubbing", "grinding", "squeaking", "squealing", "whistles", "thump/Silent", "thunk", "cracking"]
-              .sort(),
-    revolution_types = ["wheel", "crank", "chain"],
-    worse_whens = ["climbing", "standing_and_pedaling", "cornering", "road_is_rough", "coasting", "braking", "pedaling", "accelerating"].sort()
+var gnoses = {
+  rhythms: ["regular", "irregular", "intermittent"],
+  sounds: ["clicking", "creaking", "pinging", "popping", "ticking", "rattling", "clunking"] //, "crunching", "tapping", "buzzing", "rubbing", "grinding", "squeaking", "squealing", "whistles", "thump/Silent", "thunk", "cracking"]
+                .sort(),
+  revolution_types: ["wheel", "crank", "chain"],
+  worse_whens: ["climbing", "standing_and_pedaling", "cornering", "road_is_rough", "coasting", "braking", "pedaling", "accelerating"].sort()
+}
+
+
 var problems = [
   {description: "broken spoke", sounds: ["clicking", "creaking", "pinging", "popping", "ticking", "rattling", "rubbing"], rhythm: {regular: true, revolution_type: "wheel"}, worse_when: {climbing: true, standing_and_pedaling: true}, image_url: "http://brimages.bikeboardmedia.netdna-cdn.com/wp-content/uploads/2009/06/mavic-2nd-gen-r-sys-wheel-break.jpg" },
   {description: "low spoke tension", sounds: ["clicking", "creaking", "pinging", "popping", "ticking", "rubbing"], rhythm: {intermittent: true, revolution_type: "wheel"}, image_url: "http://ep1.pinkbike.org/p4pb7605197/p4pb7605197.jpg" },
