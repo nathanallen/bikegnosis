@@ -32,7 +32,7 @@ function build_checklist_section(section_title, name) {
         n = section_values.length
     for (var i = 0; i < n; i++ ){
         var value = section_values[i]
-        new_elements.push("<label><input type='checkbox' name='" + name +"' value='" + value + "'>" + value.replace(/_/g, " ") + "<br/></label>")
+        new_elements.push("<label><input type='radio' name='" + name +"' value='" + value + "'>" + value.replace(/_/g, " ") + "<br/></label>")
     }
     return new_elements
 }
@@ -88,23 +88,29 @@ function clone(obj) {
 }
 
 function filter_problems(filter_key, filter_val, remove_filter) {
-    if (remove_filter) {
+    // if (remove_filter) {
       filtered_problems = clone(problems);
-      filter = {}
-      return filtered_problems
+      // filter = {}
+      // return filtered_problems
+    // }
+    var selections = $('input:checked')
+    var i = selections.length
+    while (i--) {
+      var $selection = $(selections[i])
+      filter_key = $selection.attr('name')
+      filter_val = $selection.attr('value')
+      filtered_problems = filtered_problems.filter(function(obj){
+        // horribly ugly as data may be a string, object or array.
+        var data = obj[filter_key]
+        if (typeof(data) == "string") return data === filter_val;
+        if (data == undefined) return false; // no key in object
+        var n = data.length
+        while (n--) {
+          if (data[n] == filter_val) return true;
+        }
+        return false;
+      })
     }
-
-    filtered_problems = filtered_problems.filter(function(obj){
-      // horribly ugly as data may be a string, object or array.
-      var data = obj[filter_key]
-      if (typeof(data) == "string") return data === filter_val;
-      if (data == undefined) return false; // no key in object
-      var n = data.length
-      while (n--) {
-        if (data[n] == filter_val) return true;
-      }
-      return false;
-    })
 
     return filtered_problems
 }
