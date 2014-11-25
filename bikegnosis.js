@@ -67,7 +67,6 @@ function render_page() {
       filter_type = $(this).attr('name')
       filter_val = $(this).attr('value')
       if ($(this).is(':checked')) {
-        console.log('weird', this)
         render_solutions(filter_problems(filter_type, filter_val))
       } else {
         render_solutions(filter_problems("","",true))
@@ -84,21 +83,24 @@ function clone(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
-function filter_problems(filter_key, filter_val, force) {
-    if (force) {
+function filter_problems(filter_key, filter_val, remove_filter) {
+    if (remove_filter) {
       filtered_problems = clone(problems);
       filter = {}
       return filtered_problems
     }
 
     filtered_problems = filtered_problems.filter(function(obj){
+      // horribly ugly as data may be a string, object or array.
       var data = obj[filter_key]
+      if (typeof(data) == "string") return data === filter_val;
+      if (data == undefined) return false; // no key in object
       if (filter_val in data) return data[filter_val]
       var n = data.length
       while (n--) {
-        if (data[n] == filter_val) return true
+        if (data[n] == filter_val) return true;
       }
-      return false
+      return false;
     })
 
     return filtered_problems
