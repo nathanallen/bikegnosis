@@ -34,17 +34,25 @@ form {
 }
 
 .problem-item {
+  position: relative;
   float: left;
   width: 47%;
   height: 50%;
   padding: 0.415em;
   margin-right: 0.415em;
   margin-bottom: 0.415em;
-  background: lightgray;
+  background: black;
 }
 
 .problem-item h2 {
+  position: absolute;
   color: white;
+  background: black;
+  text-shadow: 0.1em 0.1em #333;
+  letter-spacing: 4px;
+  margin: 0.83em;
+  padding: 0.415em;
+  bottom: 0px;
 }
 
 .problem-item div {
