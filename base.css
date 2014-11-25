@@ -9,17 +9,23 @@ html, body {
 
 form {
   height: 100%;
+  min-width: 800px;
+}
+
+label {
+  /*margin: 0 0.83em;*/
 }
 
 #diagnostic {
   height: 100%;
   overflow: scroll;
-  padding: 0 0.83em 0.83em;
+  padding: 0 1.66em 1.66em;
 }
 
 .pull_left {
   float: left;
-  width: 25%;
+  max-width: 25%;
+  min-width: 200px;
 }
 
 .center {
@@ -30,6 +36,7 @@ form {
 
 #problems {
   height: 100vmin;
+  min-width: 600px;
   overflow: scroll;
 }
 
