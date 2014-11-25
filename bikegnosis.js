@@ -25,14 +25,14 @@ function render(tmpl, data, escape_fn) {
 };
 // end riot.js render
 
-function build_checklist_section(section_title, type) {
-    var section_values = gnoses[type],
+function build_checklist_section(section_title, name) {
+    var section_values = problem_criteria[name],
         title = "<h2>" + section_title + "</h2>",
         new_elements = [title],
         n = section_values.length
     for (var i = 0; i < n; i++ ){
-        var name = section_values[i]
-        new_elements.push("<label><input type='checkbox' name='" + type +"' value='" + name + "'>" + name.replace(/_/g, " ") + "<br/></label>")
+        var value = section_values[i]
+        new_elements.push("<label><input type='checkbox' name='" + name +"' value='" + value + "'>" + value.replace(/_/g, " ") + "<br/></label>")
     }
     return new_elements
 }
@@ -61,10 +61,10 @@ function render_page() {
     var $form = $('form')
 
     $form.find('.pull_left')
-         .append(build_checklist_section("Sound Type", "sounds"))
-         .append(build_checklist_section("Worse When...", "worse_whens"))
-         .append(build_checklist_section("Rhythm Type", "rhythms"))
-         .append(build_checklist_section("Every revolution of the...", "revolution_types"))
+         .append(build_checklist_section("Sound Type", "sound"))
+         .append(build_checklist_section("Worse When...", "worse_when"))
+         .append(build_checklist_section("Rhythm Type", "rhythm"))
+         .append(build_checklist_section("Every revolution of the...", "revolution_type"))
 
     $('#diagnostic input').click(function(e){
       filter_type = $(this).attr('name')
@@ -98,7 +98,6 @@ function filter_problems(filter_key, filter_val, remove_filter) {
       var data = obj[filter_key]
       if (typeof(data) == "string") return data === filter_val;
       if (data == undefined) return false; // no key in object
-      if (filter_val in data) return data[filter_val]
       var n = data.length
       while (n--) {
         if (data[n] == filter_val) return true;
