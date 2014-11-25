@@ -10,20 +10,17 @@
 
   <body>
     <form>
-      <div class='pull_left diagnostic'></div>
-    <div class='center' id="problems"></div>
-      <div class='pull_right diagnostic'></div>
+      <div class='pull_left' id="diagnostic"></div>
+      <div class='center' id="problems"></div>
     </form>
   </body>
 
   <!-- templates -->
   <script type="text/tmpl" id="problem-item">
     <div class='problem-item'>
-      <div>
-        <div class="problem-image-container"><img src="{image_url}"></div>
-        <div><h2>{description}</h2></div>
-      </div>
-      
+        <div class="problem-image-container" style="background:url({image_url}) no-repeat center; background-size: cover;">
+          <h2>{description}</h2>
+        </div>
     </div>
   </script>
 

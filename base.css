@@ -11,7 +11,7 @@ form {
   height: 100%;
 }
 
-.diagnostic {
+#diagnostic {
   height: 100%;
   overflow: scroll;
   padding: 0 0.83em 0.83em;
@@ -20,18 +20,12 @@ form {
 .pull_left {
   float: left;
   width: 25%;
-  background: red;
 }
-
-/*.pull_right {
-  float: right;
-  width: 20%;
-}*/
 
 .center {
   float: left;
   width: 75%;
-  background: blue;
+  padding: 0.83em;
 }
 
 #problems {
@@ -39,22 +33,26 @@ form {
   overflow: scroll;
 }
 
+.problem-item {
+  float: left;
+  width: 47%;
+  height: 50%;
+  padding: 0.415em;
+  margin-right: 0.415em;
+  margin-bottom: 0.415em;
+  background: lightgray;
+}
+
+.problem-item h2 {
+  color: white;
+}
+
 .problem-item div {
   float: left;
 }
 
-.problem-item:after {
-  display: block;
-  content: "";
-  height: 0px;
-  clear: both;
-}
-
 .problem-image-container {
-  border: 1px dotted black;
+  width: 100%;
+  height: 100%;
   margin-right: 10px;
-}
-
-.problem-image-container img {
-  width: 200px;
 }
