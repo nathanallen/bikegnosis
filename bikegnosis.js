@@ -60,19 +60,18 @@ function render_solutions() {
 }
 
 function render_page() {
-    var $form = $('form')
+    var $diagnostic = $('form #diagnostic')
 
-    $form.find('.pull_left')
-         .append(build_checklist_section("Sound Type", "sound"))
-         .append(build_checklist_section("Worse When...", "worse_when"))
-         .append(build_checklist_section("Rhythm Type", "rhythm"))
-         .append(build_checklist_section("Every revolution of the...", "revolution_type"))
+    $diagnostic.append(build_checklist_section("Sound Type", "sound"))
+               .append(build_checklist_section("Worse When...", "worse_when"))
+               .append(build_checklist_section("Rhythm Type", "rhythm"))
+               .append(build_checklist_section("Every revolution of the...", "revolution_type"))
 
-    $('#diagnostic input').change(function(e){
+    $diagnostic.find('input').change(function(e){
         render_solutions(filter_problems())
     })
 
-    $('#diagnostic button').click(function(e){
+    $diagnostic.find('button').click(function(e){
         render_solutions(filter_problems())
     })
 

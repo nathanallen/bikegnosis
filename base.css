@@ -12,27 +12,27 @@ form {
   min-width: 800px;
 }
 
-#diagnostic {
-  height: 100%;
-  overflow: scroll;
-  padding: 0 1.66em 1.66em;
-}
 
-.pull_left {
+#diagnostic {
   float: left;
+  height: 100%;
   max-width: 25%;
   min-width: 200px;
+  padding: 0 1.66em 1.66em;
+  overflow: scroll;
 }
 
-.center {
-  float: left;
-  width: 75%;
-  padding: 0.83em;
+#diagnostic h2 {
+  margin-bottom: 8px;
+  letter-spacing: 1px;
 }
 
 #problems {
+  float: left;
   height: 100vmin;
+  width: 75%;
   min-width: 600px;
+  padding: 0.83em;
   overflow: scroll;
 }
 
